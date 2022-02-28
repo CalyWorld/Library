@@ -1,32 +1,45 @@
-// function books(title, author, pages, read){
+  
+                // const form = document.getElementById('myForm');
+              
 
-//     }
-//      const theHobbit = new books('The Hobbit','J.R.R. Tolkien', '295', 'not read yet');
-//      console.log(theHobbit.info());
+                let library = [];
 
-let library = [];
+                function Books(title, author, pages, read){
 
-function Books(title, author, pages, read){
+                    this.title = title;
+                    this.author = author;
+                    this.pages = pages;
+                    this.read = read;
+                }
+                function addBookToLibrary(){
+                    const book = new Books('odyseey', 'Callistus', '295', 'not read');
+                    const book2 = new Books('odyseey', 'Callistus', '295', 'not read');
+                    library.push(book);
+                    library.push(book2);
+                    createList();
+                }
+                addBookToLibrary();
+            
 
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-//     this.info = function(){
-//         return (`${title} by ${author}, ${pages} pages, ${read}`);
-//     }
-// }
-}
-Books();
+                // // // function submit(){
+                // // //         document.getElementById("myForm").submit();
+                // // //         createList();
+                // // // }
+                // // // submit();
 
-function addBookToLibrary(){
-    let book = new Books('The Hobbit','J.R.R. Tolkien', '295', 'not read yet');
-    library.push(book);
-}
+                function createList(){
+                  var html = "<table border = '2|2'>";
+                    for(var i=0; i<library.length; i++){
+                        html += '<tr>';
+                            html+='<td>'+library[i].title+'</td>';
+                            html+='<td>'+library[i].author+'</td>';
+                            html+='<td>'+library[i].pages+'</td>';
+                            html+='<td>'+library[i].read+'</td>';
 
-addBookToLibrary();
-console.log(library);
+                            html +='</tr>';
+                    }
+                    html+='</table>';
+                    document.getElementById('container').innerHTML += html;
+                }
 
-
-
-
+ 
