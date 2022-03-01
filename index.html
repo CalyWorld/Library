@@ -4,31 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="library.js"></script>
     <title>Library</title>
 </head>
 <body>
-<form action="example.com/path" method="post">
-    <div>
-        <label for="title">Title:</label>
-        <input type="text" id="title" placeholder="Title.." name="title">
-    </div>
+  
+    <button onclick="openForm()">Open form</button>
 
-    <div>
-        <label for="author">Author:</label>
-        <input type="text" id="author" placeholder="Author.." name="author">
-    </div>
+<div id="container">  
+   <form id="form">
 
-    <div>
+        <label for="fname">Title:</label>
+        <input type="text" id= "fname" placeholder="Title.." name="titlename">
+        <br>
+
+    
+        <label for="lname">Author:</label>
+        <input type="text" id="lname" placeholder="Name of Author.." name="authorname">
+        <br>
+    
         <label for="number">Number:</label>
         <input type="number" id="number" placeholder="Number.." name="number">
-    </div>
+        <br>
 
-    <div>
-        <label for="read">Read</label>
+    
+        <label for="read">Read:</label>
         <input type="checkbox" id="read" name="read" value="true">
-        
-    </div>
-</form>
+        <br>      
+    </form>
+
+    <input type = "button" id="submit" value="Submit">
+    <div id="box"></div>
+
+</div>
+
+
 
 
 </body>
