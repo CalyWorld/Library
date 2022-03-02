@@ -24,11 +24,11 @@
                     
                     let book = new Books(title, author, pages, read);
                     library.push(book);
-                    createList(); 
-                    
+                    createTable(); 
+                   
                 }
 
-                 function createList(){
+                 function createTable(){
                    var html = "<table border = '2|2'>";
                     
                         html += '<tr>';
@@ -52,17 +52,26 @@
                    document.getElementById('box').innerHTML += html;
                  }
 
-
-
-                 function submitForm(){
-                    const btn = document.querySelector('#submit');
-                    btn.addEventListener('click', addBookToLibrary);
-                    }
-                    submitForm();
-                    
-
-                function openForm(){
-                   document.getElementById('container').style.display = 'block';
+                document.getElementById("submit").onclick = function(){
+                    document.getElementById('box').style.display='block';
+                    addBookToLibrary();
+                    container.style.display = "none";
                 }
+
+             
+                const addform = document.getElementById('addbutton');
+                const container = document.getElementById('container');
+
+                addform.onclick =   function(){  
+
+                 if(container.style.display !== "none"){
+                        container.style.display = "block";
+                    }else{
+                        container.style.display='block';
+                    }
+                        
+                }
+    
+
              
             
