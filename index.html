@@ -9,39 +9,40 @@
     <title>Library</title>
 </head>
 <body>
+<header>
+    <button id="addbutton">Add form</button>
+</header>
   
-    <button onclick="openForm()">Open form</button>
 
-<div id="container">  
-   <form id="form">
+<div id="container"> 
+    
+        <form id="form">
 
-        <label for="fname">Title:</label>
-        <input type="text" id= "fname" placeholder="Title.." name="titlename">
-        <br>
+                <label for="fname">Title:</label>
+                <input type="text" id= "fname" placeholder="Title.." name="titlename">
+                <br>
+
+            
+                <label for="lname">Author:</label>
+                <input type="text" id="lname" placeholder="Name of Author.." name="authorname">
+                <br>
+            
+                <label for="number">Number:</label>
+                <input type="number" id="number" placeholder="Number.." name="number">
+                <br>
+
+            
+                <label for="read">Read:</label>
+                <input type="checkbox" id="read" name="read" value="true">
+                <br>    
+                <input type = "button" id="submit" value="Submit">  
+            </form>
+    </div> 
+
+
 
     
-        <label for="lname">Author:</label>
-        <input type="text" id="lname" placeholder="Name of Author.." name="authorname">
-        <br>
-    
-        <label for="number">Number:</label>
-        <input type="number" id="number" placeholder="Number.." name="number">
-        <br>
-
-    
-        <label for="read">Read:</label>
-        <input type="checkbox" id="read" name="read" value="true">
-        <br>      
-    </form>
-
-    <input type = "button" id="submit" value="Submit">
     <div id="box"></div>
-
-</div>
-
-
-
-
 </body>
 
 
