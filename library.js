@@ -4,15 +4,18 @@ const container = document.getElementById('container');
 const submitbtn = document.getElementById('submit');
 const table = document.getElementById('table');
 const library = [];
+let nextBookId = 1;
+let read = true;
 
 
-function Books(title, author, pages, read) {
-
+function Book(title, author, pages, read, id) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.id = id;
 }
+
 function addBookToLibrary() {
 
     const title = document.getElementById('fname').value;
@@ -20,9 +23,10 @@ function addBookToLibrary() {
     const pages = document.getElementById('number').value;
     const read = document.getElementById('read').value;
 
-    book = new Books(title, author, pages, read);
-    library.push(book);
+    books = new Book(title, author, pages, read, nextBookId);
+    library.push(books);
     createTable();
+    nextBookId++;
 }
 
 function createTable() {
@@ -36,21 +40,21 @@ function createTable() {
     html += '<th>' + `Remove Row` + '</th>';
 
     for (var i = 0; i < library.length; i++) {
-        html += `<tr id=table data-row =${i}>`;
+        html += `<tr data-id='${library[i].id}' id=removeRows'>`;
         html += '<td>' + library[i].title + '</td>';
         html += '<td>' + library[i].author + '</td>';
         html += '<td>' + library[i].pages + '</td>';
         html += '<td>' + library[i].read + '</td>';
         html +=
-            '<td>' +
-            '<button id=removebtn onclick= removeBook(event)>Delete</button>' +
-            '</td>';
+            `<td>
+            <button id=${library[i].id} class=removebtn onclick= removeRow(this.id)>Delete</button> 
+            </td>`;
 
 
         html += '</tr>';
 
     }
-
+   
     html += '</table>';
     document.getElementById('box').innerHTML = html;
 }
@@ -73,13 +77,20 @@ function submitForm() {
     container.style.display = 'none';
 }
 
-function removeBook(e) {
- if(e.currentTarget.textContent = 'Delete'){
-     e.currentTarget += document.getElementById('table').getAttribute('data-row');
-     library.splice(e.currentTarget, 1);
-     createTable();
+ function removeRow(id){
+    removeBook();
+    const row = document.getElementById(id).parentNode.parentNode;
+    row.remove(); 
  }
-}
+ function removeBook() {
+    index = `${library.id}`;
+    library.splice(index, 1);
+    }
+
+Book.prototype.checkbox = function(){
+   this.read = !this.read;
+};
+
 addform.addEventListener('click', openForm);
 submitbtn.addEventListener('click', submitForm);
                 
