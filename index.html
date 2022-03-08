@@ -3,46 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script defer src="library.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script defer src="library.js"></script>
+   
     <title>Library</title>
 </head>
 <body>
-<header>
-    <button id="addbutton">Add form</button>
-</header>
-  
 
-<div id="container"> 
-    
+<button id="addbtn">Add form</button>
+    <div id ='form-container'> 
         <form id="form">
 
-                <label for="fname">Title:</label>
-                <input type="text" id= "fname" placeholder="Title.." name="titlename">
-                <br>
+            <label for="fname">Title:</label>
+            <input type="text" id= "fname" placeholder="Title.." name="titlename">
+            <br>
 
-            
-                <label for="lname">Author:</label>
-                <input type="text" id="lname" placeholder="Name of Author.." name="authorname">
-                <br>
-            
-                <label for="number">Number:</label>
-                <input type="number" id="number" placeholder="Number.." name="number">
-                <br>
+        
+            <label for="lname">Author:</label>
+            <input type="text" id="lname" placeholder="Name of Author.." name="authorname">
+            <br>
+        
+            <label for="number">Number:</label>
+            <input type="number" id="number" placeholder="Number.." name="number">
+            <br>
 
-            
-                <label for="read">Read:</label>
-                <input type="checkbox" id="read" name="read" value="true">
-                <br>    
-                <input type = "button" id="submit" value="Submit">  
-            </form>
-    </div> 
+        
+            <label for="read">Read:</label>
+            <select name="read" id="read">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            <br><br>   
+            <input type = "button" id="submit" value="Submit">  
+        </form>
 
+    </div>
 
-
+    <div id="folder">
+    </div>
     
-    <div id="box"></div>
 </body>
 
 
