@@ -25,8 +25,12 @@
 
 
     function addBookToLibrary(){
-        //creating instances
-        if(title.value != '' && author.value!= '' && pages.value!='' &&read.value !=''){
+       
+        if(title.value == " " && author.value == " " && pages.value == " " && read.value == " " ){
+            alert('please fill in the form');
+            
+        }else{
+         //creating instances   
         let book = new Book(title.value, author.value, pages.value, read.value, nextBookId);
 
         //adds instance book into library []
@@ -42,19 +46,12 @@
         //form container display is off so we can only view the card when submitbtn has been pressed
         container.style.display = 'none';
 
-        //set values to empty so user can input values after submitbtn has been clicked
-        title.value = '';
-        author.value = '';
-        pages.value = '';
-
+      
         // if(read.value === true){
         //     readbtn.textContent = "Read: Yes";
         // }else if(read.value === false) {
         //     readbtn.textContent = "Read: No";
         // }
-
-        }else{
-            return `please fill in the necessary info`;
         }
 
     }
@@ -148,7 +145,11 @@
 
     //Gets form and allows user to input something inside
     function addForm(){
-
+          //set values to empty so user can input values after submitbtn has been clicked
+          title.value = '';
+          author.value = '';
+          pages.value = '';
+  
         if(container !== 'none'){
             container.style.display = 'flex';
         }else{
