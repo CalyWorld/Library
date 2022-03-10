@@ -26,9 +26,9 @@
 
     function addBookToLibrary(){
         //creating instances
+        if(title.value != '' && author.value!= '' && pages.value!='' &&read.value !=''){
         let book = new Book(title.value, author.value, pages.value, read.value, nextBookId);
 
-        console.log(myLibrary);
         //adds instance book into library []
         myLibrary.push(book);
 
@@ -52,6 +52,10 @@
         // }else if(read.value === false) {
         //     readbtn.textContent = "Read: No";
         // }
+
+        }else{
+            return `please fill in the necessary info`;
+        }
 
     }
 

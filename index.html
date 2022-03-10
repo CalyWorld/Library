@@ -1,49 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script defer src="library.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-   
-    <title>Library</title>
-</head>
-<body>
-
-<button id="addbtn">Add form</button>
-    <div id ='form-container'> 
-        <form id="form">
-
-            <label for="fname">Title:</label>
-            <input type="text" id= "fname" placeholder="Title.." name="titlename">
-            <br>
-
-        
-            <label for="lname">Author:</label>
-            <input type="text" id="lname" placeholder="Name of Author.." name="authorname">
-            <br>
-        
-            <label for="number">Number:</label>
-            <input type="number" id="number" placeholder="Number.." name="number">
-            <br>
-
-        
-            <label for="read">Read:</label>
-            <select name="read" id="read">
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
-            <br><br>   
-            <input type = "button" id="submit" value="Submit">  
-        </form>
-
-    </div>
-
-    <div id="folder">
-    </div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script defer src="library.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
     
-</body>
+        <title>Library</title>
+    </head>
+    <body>
+        <div id="intro">
+            <h1 >Welcome to my Library</h1>
+            <p id="subtitle">Please kindly add your own Books</p>
+            </div>
+        <div id="button-container"> 
+        <button id="addbtn">Add Books</button>
+        </div> 
+        <div id ='form-container'> 
+            <form id="form">
+
+                <label for="fname">Title:</label>
+                <input type="text" id= "fname" placeholder="Enter Title.." name="titlename">
+                <br>
+
+            
+                <label for="lname">Author:</label>
+                <input type="text" id="lname" placeholder="Enter Name of Author.." name="authorname">
+                <br>
+            
+                <label for="number">Number:</label>
+                <input type="number" id="number" placeholder="Number.." name="number">
+                <br>
+
+            
+                <label for="read">Read:</label>
+                <select name="read" id="read">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <br><br> 
+                <div id="form-submit">
+                <input type = "button" id="submit" value="Submit">  
+                </div>
+            </form>
+
+        </div>
+
+        <div id="folder">
+        </div>
+        
+    </body>
 
 
-</html>
+    </html>
