@@ -1,163 +1,171 @@
-    const submitbtn = document.getElementById('submit');
-    const openbtn = document.getElementById('addbtn');
-    const container = document.getElementById('form-container');
-    const folder = document.getElementById('folder'); 
-    const title = document.getElementById('fname');
-    const author = document.getElementById('lname');
-    const pages = document.getElementById('number');
-    let read = document.getElementById('read');
+const submitbtn = document.getElementById('submit');
+const openbtn = document.getElementById('addbtn');
+const container = document.getElementById('form-container');
+const folder = document.getElementById('folder');
+const title = document.getElementById('fname');
+const author = document.getElementById('lname');
+const pages = document.getElementById('number');
+let read = document.getElementById('read');
 
 
-
-    const myLibrary = [];
-
-    //id starts at 1 and increments when an object has been created
-    let nextBookId = 1;
+const myLibrary = [];
 
 
-    function Book(title,author,pages,read,id) {
+ 
+
+class Book {
+    constructor(title, author, pages, read) {
         this.title = title;
-        this.author= author;
+        this.author = author;
         this.pages = pages;
         this.read = read;
-        this.id = id;       
     }
+};
 
 
-    function addBookToLibrary(){
+function addBookToLibrary() {
+
+    if (title.value == "" && author.value == "" && pages.value == "" && read.value == "") {
+        alert('please fill in the form');
+
+    } else {
        
-        if(title.value == " " && author.value == " " && pages.value == " " && read.value == " " ){
-            alert('please fill in the form');
-            
-        }else{
-         //creating instances   
-        let book = new Book(title.value, author.value, pages.value, read.value, nextBookId);
+        let book = new Book(title.value, author.value, pages.value, read.value);
 
-        //adds instance book into library []
         myLibrary.push(book);
 
 
-        //calls the Card function
+
+        console.log(myLibrary);
+        
         createCard();
 
-        //increments the id anytime a book is created.. this is for indexing each book
-        nextBookId++;
-
-        //form container display is off so we can only view the card when submitbtn has been pressed
+      
         container.style.display = 'none';
 
-      
+
         // if(read.value === true){
         //     readbtn.textContent = "Read: Yes";
         // }else if(read.value === false) {
         //     readbtn.textContent = "Read: No";
         // }
-        }
-
     }
 
-
-    function createCard(){
-        const readbtn = document.createElement('button');
-        const deletebtn = document.createElement('button');
-        let box = document.createElement('box');
-        let titleholder = document.createElement('h2');
-        let authorholder = document.createElement('p');
-        let pagesholder = document.createElement('p');
+}
 
 
-        //includes our form values into each tag inside box
-        titleholder.textContent = `Title : ${title.value}`;
-        authorholder.textContent = `Author : ${author.value}`;
-        pagesholder.textContent =  `Pages : ${pages.value}`;
-        readbtn.textContent = `Read: ${read.value}`;
-
-      
-        //style box
-        box.style.padding = '10px';
-        box.style.border = 'solid white 2px';
+function createCard() {
+    const readbtn = document.createElement('button');
+    const deletebtn = document.createElement('button');
+    let box = document.createElement('box');
+    let titleholder = document.createElement('h2');
+    let authorholder = document.createElement('p');
+    let pagesholder = document.createElement('p');
 
 
-        //set style for delete button
-        deletebtn.style.margin = '10px';
-        deletebtn.style.padding = '10px'
-        deletebtn.style.backgroundColor = '#CC9544';
+  
+    titleholder.textContent = `Title : ${title.value}`;
+    authorholder.textContent = `Author : ${author.value}`;
+    pagesholder.textContent = `Pages : ${pages.value}`;
+    readbtn.textContent = `Read: ${read.value}`;
 
 
-        //set style for read button
-        readbtn.style.padding = '10px';
-        readbtn.style.backgroundColor = '#CC9544';
+   
+    box.style.padding = '10px';
+    box.style.border = 'solid white 2px';
 
 
-        deletebtn.textContent = `Delete`;
-        
-        //inserts box into our main container folder
-        folder.append(box);
+  
+    deletebtn.style.margin = '10px';
+    deletebtn.style.padding = '10px'
+    deletebtn.style.backgroundColor = '#CC9544';
+
+
+
+    readbtn.style.padding = '10px';
+    readbtn.style.backgroundColor = '#CC9544';
+
+
+    deletebtn.textContent = `Delete`;
+
+    folder.append(box);
+
+
+
+ 
+  
+
+
+    box.setAttribute('id', myLibrary.length-1);
+    box.classList.add("box");
+    deletebtn.setAttribute("id", "delete");
+
+    readbtn.setAttribute('id', myLibrary.length);
+
+
+
+    box.append(titleholder);
+    box.append(authorholder);
+    box.append(pagesholder);
+    box.append(readbtn);
+    box.append(deletebtn);
+
+
+   
+    deletebtn.addEventListener('click', (e) => {
 
 
        
 
-        //sets box id to array length so we can get index of each box
-        box.setAttribute('id', myLibrary.length);
+        // Debugger();
 
-        readbtn.setAttribute('id', myLibrary.length);
-
-
-
-        //puts content inside box/card
-        box.append(titleholder);
-        box.append(authorholder);
-        box.append(pagesholder);
-        box.append(readbtn);
-        box.append(deletebtn); 
-
-
-        //deletebtn
-        deletebtn.addEventListener('click', e =>{
-            //removes box div from folder when deletebtn has been clicked
-            folder.removeChild(box);
-
-            //gets index of the object id which has been clicked and is stored in index
-            index = e.target.id;
-
-            //removes the object from the array
-            myLibrary.splice(index, 1);
+        console.log(e.target.parentElement.id);
+        // Debugger();
         
-        });
+    
+        myLibrary.splice(e.target.parentElement.id, 1);
+   
 
-    //     readbtn.addEventListener('click', e=>{
-            
-    //             if(e.target.id.read === true){
-    //                 e.target.id.read = false;
-    //             }else{
-    //                 e.target.id.read = true;
-    //             }
+        // render();
 
-    //             if(readbtn.textContent === 'read'){
-    //                 readbtn.textContent === 'Unread';
-    //             }else{
-    //                 readbtn.textContent === 'read';
-    //             }
-    //         });
-    // 
+        folder.removeChild(box);
+
+        console.log(myLibrary);
+    });
+}
+
+
+//     readbtn.addEventListener('click', e=>{
+
+//             if(e.target.id.read === true){
+//                 e.target.id.read = false;
+//             }else{
+//                 e.target.id.read = true;
+//             }
+
+//             if(readbtn.textContent === 'read'){
+//                 readbtn.textContent === 'Unread';
+//             }else{
+//                 readbtn.textContent === 'read';
+//             }
+//         });
+// 
+
+
+
+function addForm() {
+
+    title.value = '';
+    author.value = '';
+    pages.value = '';
+
+    if (container !== 'none') {
+        container.style.display = 'flex';
+    } else {
+        container.style.display = 'grid';
+        container.style.justifyContent = 'center';
     }
+}
 
-
-    //Gets form and allows user to input something inside
-    function addForm(){
-          //set values to empty so user can input values after submitbtn has been clicked
-          title.value = '';
-          author.value = '';
-          pages.value = '';
-  
-        if(container !== 'none'){
-            container.style.display = 'flex';
-        }else{
-            container.style.display = 'grid';
-            container.style.justifyContent = 'center';
-        }
-    }
-
-    openbtn.addEventListener('click', addForm);
-    submitbtn.addEventListener('click', addBookToLibrary);
-
+openbtn.addEventListener('click', addForm);
+submitbtn.addEventListener('click', addBookToLibrary);
