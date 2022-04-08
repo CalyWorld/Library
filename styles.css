@@ -90,7 +90,7 @@ input[id=submit] {
     cursor: pointer;
 }
 
-input[id=submit]:hover {
+input[class=submit]:hover {
     background-color:#CC9544;
 }
 #form-submit{
@@ -106,6 +106,7 @@ input[id=submit]:hover {
     grid-template-columns:repeat(4, 1fr);
     grid-template-rows:1fr 1fr;
 }
+
 
 
 
