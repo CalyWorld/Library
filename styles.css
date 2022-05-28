@@ -118,7 +118,9 @@ input:focus:invalid {
     display: flex;
     justify-content: center;
 }
-
+div{
+    color: white;
+}
 #folder{
     display: grid;
     justify-content: center;
