@@ -10,10 +10,8 @@ const titleError = document.querySelector("#fname + span.error");
 const authorError = document.querySelector("#lname + span.error");
 const pageError = document.querySelector("#pages + span.error");
 let read = document.getElementById("read");
-
-let myLibrary = [];
 let nextBookId = 0;
-
+let myLibrary =[];
 
 class Book {
     constructor(title, author, pages, read, id) {
@@ -25,16 +23,16 @@ class Book {
     }
 }
 
-function addBookToLibrary(title,author,pages,read) {
-    let book = new Book(title,author,pages,read,nextBookId);
-    myLibrary.push(book);
-    console.log(myLibrary);
-    createCard(book);
+function addBookToLibrary(title, author,pages, read, callBack) {
+    let createBook = new Book(title,author,pages,read,nextBookId);
+    myLibrary.push(createBook);
     container.style.display = "none";
-
+    callBack(createBook);
+    console.log(myLibrary);
 }
 
-function createCard(book) {
+
+function createBook(book) {
         const readbtn = document.createElement("button");
         const deletebtn = document.createElement("button");
         let box = document.createElement("box");
@@ -93,7 +91,6 @@ function createCard(book) {
         nextBookId++;
 }
 
-
 function addForm() {
     if (container !== "none") {
         container.style.display = "flex";
@@ -146,7 +143,7 @@ submitbtn.addEventListener("click", function(event){
         const author = document.getElementById("lname").value;
         const pages = document.getElementById("pages").value;
         let read = document.getElementById("read").checked;
-        addBookToLibrary(title, author, pages, read);
+        addBookToLibrary(title, author, pages, read, createBook);
     }
 });
 
